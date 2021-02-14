@@ -1,5 +1,7 @@
 '''
 Rename this example to main.py before loading onto your Pico.
+In order to access the TSYS01 module you will need to put tsys01.py 
+on a folder labeled "ubr" on your Pico.
 
 This example asks the TSYS01 for the temperature and converts it to other
 formats once every 3 seconds.
