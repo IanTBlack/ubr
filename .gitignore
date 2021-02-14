@@ -1,0 +1,9 @@
+*.nc
+/.spyproject
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.RDataTmp
+/__pycache__
+*.pyc
