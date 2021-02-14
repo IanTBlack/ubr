@@ -1,6 +1,7 @@
 import machine
 
 #RPI Pico I2C Options
+#ID,SDA,SCL
 I2C_001 = (0,machine.Pin(1),machine.Pin(0))
 I2C_123 = (1,machine.Pin(2),machine.Pin(3))
 I2C_045 = (0,machine.Pin(4),machine.Pin(5))
@@ -22,14 +23,14 @@ def crawl_I2C_until(address):
     @param -- the address of a I2C slave
     @return -- a tuple indicating the I2C port (id,scl,sda)."""
     for bus in I2Cs:
-        i2c = machine.I2C(bus)
+        print(bus)
         try:
+            i2c = machine.I2C(id=bus[0],scl=bus[2], sda=bus[1])
             if address in i2c.scan():
-                i2c.deinit()
+                msg = "Address {} found on I2C bus {}"
+                print(msg.format(address,bus))
                 return bus
             else:
-                i2c.deinit()
                 continue
         except:
-            i2c.deinit()
             continue
